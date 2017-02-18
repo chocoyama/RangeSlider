@@ -106,7 +106,7 @@ open class RangeSlider: UIView, RangeSliderViewInitializable {
         updateTabPosition(animated: true)
     }
     
-    open var currentValue: (Int, Int) {
+    open var currentValue: RangeValue {
         return (leftTab.value, rightTab.value)
     }
     

@@ -26,18 +26,24 @@ extension RangeSlider {
         let tabPosition: (left: Int?, right: Int?)
         let activeColor: UIColor
         let deactiveColor: UIColor
+        let tabTextColor: UIColor
+        let intermediateTextColor: UIColor
         
         public init(
             frame: CGRect = CGRect(x: 0.0, y: 0.0, width: UIScreen.main.bounds.width, height: 65.0),
             values: [Int] = [Int](),
             tabPosition: (left: Int?, right: Int?) = (nil, nil),
             activeColor: UIColor = .blue,
-            deactiveColor: UIColor = .lightGray) {
+            deactiveColor: UIColor = .lightGray,
+            tabTextColor: UIColor = .white,
+            intermediateTextColor: UIColor = .black) {
             self.frame = frame
             self.values = values
             self.tabPosition = tabPosition
             self.activeColor = activeColor
             self.deactiveColor = deactiveColor
+            self.tabTextColor = tabTextColor
+            self.intermediateTextColor = intermediateTextColor
         }
     }
     

@@ -18,12 +18,6 @@ public protocol RangeSliderDelegate: class {
     func didFinishedSlide(range: RangeSlider.RangeValue, atRangeSlider: RangeSlider)
 }
 
-extension RangeSliderDelegate {
-    func didStartedSlide(range: RangeSlider.RangeValue, atRangeSlider: RangeSlider) {}
-    func didChangedSlide(range: RangeSlider.RangeValue, atRangeSlider: RangeSlider) {}
-    func didFinishedSlide(range: RangeSlider.RangeValue, atRangeSlider: RangeSlider) {}
-}
-
 open class RangeSlider: UIView, RangeSliderViewInitializable {
     
     @IBOutlet weak var baseView: UIView!
@@ -80,6 +74,8 @@ open class RangeSlider: UIView, RangeSliderViewInitializable {
             rangeSliderHeightConstraint.constant = config.frame.height
             [mainRangeBar, leftTab.label, rightTab.label].forEach{ $0?.backgroundColor = config.activeColor }
             [leftRangeBar, rightRangeBar].forEach{ $0?.backgroundColor = config.deactiveColor }
+            [leftTab.label, rightTab.label].forEach{ $0?.textColor = config.tabTextColor }
+            [leftIntermediateLabel, rightIntermediateLabel].forEach{ $0?.textColor = config.intermediateTextColor }
             setNeedsLayout()
             layoutIfNeeded() // 表示しているコントローラーが最前面にない場合レイアウトが崩れるので必要な処理
             updateLabel()

@@ -1,0 +1,10 @@
+framework module RangeSlider {
+  umbrella header "RangeSlider.h"
+
+  export *
+  module * { export * }
+}
+
+module RangeSlider.Swift {
+    header "RangeSlider-Swift.h"
+}

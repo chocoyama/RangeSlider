@@ -36,15 +36,16 @@ class ViewController: UIViewController {
 }
 
 extension ViewController: RangeSliderDelegate {
-    func didStartChanged(range: RangeSlider.RangeValue, atRangeSlider: RangeSlider) {
+    func didStartedSlide(range: RangeSlider.RangeValue, atRangeSlider: RangeSlider) {
         print("Start: \(range)")
     }
     
-    func didChanged(range: RangeSlider.RangeValue, atRangeSlider: RangeSlider) {
+    func didChangedSlide(range: RangeSlider.RangeValue, atRangeSlider: RangeSlider) {
         print("Change: \(range)")
     }
     
-    func didFinishChanged(range: RangeSlider.RangeValue, atRangeSlider: RangeSlider) {
+    func didFinishedSlide(range: RangeSlider.RangeValue, atRangeSlider: RangeSlider) {
         print("Finish: \(range)")
     }
+    
 }

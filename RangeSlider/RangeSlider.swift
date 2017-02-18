@@ -9,13 +9,19 @@
 import UIKit
 
 public protocol RangeSliderDelegate: class {
-    func didStartChanged(range: RangeSlider.RangeValue, atRangeSlider: RangeSlider)
+    func didStartedSlide(range: RangeSlider.RangeValue, atRangeSlider: RangeSlider)
     
     /// スライダーの値が変化する度に呼ばれる
-    func didChanged(range: RangeSlider.RangeValue, atRangeSlider: RangeSlider)
+    func didChangedSlide(range: RangeSlider.RangeValue, atRangeSlider: RangeSlider)
     
     /// スライダーから指を離したタイミングで呼ばれる
-    func didFinishChanged(range: RangeSlider.RangeValue, atRangeSlider: RangeSlider)
+    func didFinishedSlide(range: RangeSlider.RangeValue, atRangeSlider: RangeSlider)
+}
+
+extension RangeSliderDelegate {
+    func didStartedSlide(range: RangeSlider.RangeValue, atRangeSlider: RangeSlider) {}
+    func didChangedSlide(range: RangeSlider.RangeValue, atRangeSlider: RangeSlider) {}
+    func didFinishedSlide(range: RangeSlider.RangeValue, atRangeSlider: RangeSlider) {}
 }
 
 open class RangeSlider: UIView, RangeSliderViewInitializable {
@@ -210,15 +216,15 @@ open class RangeSlider: UIView, RangeSliderViewInitializable {
     // MARK:- Delegation
     /** レンジの変更をデリゲート先に通知する */
     func noticeStarted() {
-        delegate?.didStartChanged(range: (leftTab.value, rightTab.value), atRangeSlider: self)
+        delegate?.didStartedSlide(range: (leftTab.value, rightTab.value), atRangeSlider: self)
     }
     
     func noticeChanged() {
-        delegate?.didChanged(range: (leftTab.value, rightTab.value), atRangeSlider: self)
+        delegate?.didChangedSlide(range: (leftTab.value, rightTab.value), atRangeSlider: self)
     }
     
     func noticeFinish() {
-        delegate?.didFinishChanged(range: (leftTab.value, rightTab.value), atRangeSlider: self)
+        delegate?.didFinishedSlide(range: (leftTab.value, rightTab.value), atRangeSlider: self)
     }
     
     // MARK:- UpdateView

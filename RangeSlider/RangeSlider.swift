@@ -106,6 +106,10 @@ open class RangeSlider: UIView, RangeSliderViewInitializable {
         updateTabPosition(animated: true)
     }
     
+    open var currentValue: (Int, Int) {
+        return (leftTab.value, rightTab.value)
+    }
+    
     /** 初期値を設定する */
     private func initDefaultValues() {
         self.frame = config.frame
